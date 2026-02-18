@@ -1,4 +1,4 @@
-# 🧬 PhD Thesis — LaTeX Source Code
+# 🎓 PhD Thesis — LaTeX Source Code
 
 **Welcome!**
 
