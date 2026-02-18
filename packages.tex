@@ -1,0 +1,141 @@
+
+%%%% Font et typos %%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[square,sort&compress,sectionbib]{natbib}	
+%\bibpunct{\textcolor{black}{[}}{\textcolor{black}{]}}{\textcolor{black}{,}}{a}{}{\textcolor{black}{;}}
+\usepackage{chapterbib}
+		\renewcommand{\bibsection}{\chapter*{Références}}	
+
+\usepackage[french]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{lmodern}
+\usepackage{ae,aecompl}	 % Utilisation des fontes vectorielles modernes
+\usepackage[upright]{fourier}
+
+\usepackage{textgreek}
+\usepackage{underscore}
+\usepackage{blindtext}
+%%%% Allure g�n�rale du document %%%%%%%%%%%
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[section]{placeins}	% Place un FloatBarrier � chaque nouvelle section
+\usepackage{epigraph}
+\usepackage[font=footnotesize]{caption}
+\usepackage[francais,nohints]{minitoc}		% Mini table des mati�res
+	\setcounter{minitocdepth}{2}	% Mini-toc d�taill�s (section/sous-section)
+\usepackage[notbib]{tocbibind}		% Ajoute les Tables des Mati�res/Figures/Tableaux � la table des mati�res
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[raggedright]{titlesec}
+
+\addtolength{\skip\footins}{2pc plus 5pt}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup}
+  
+%%%% Tableaux %%%%%%%%%%%
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{threeparttable}
+\usepackage[table]{xcolor}
+\definecolor{Gray}{gray}{0.9}
+{\rowcolors{3}{white}{Gray}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{etoolbox}
+	\appto\TPTnoteSettings{\footnotesize}
+	\AtBeginEnvironment{tabular}{\footnotesize}
+\addto\captionsfrench{\def\tablename{{\textsc{Tableau}}}}	% Renomme 'table' en 'tableau'
+
+%%%% El�ments graphiques %%%%%%%%%%%                 
+\usepackage{graphicx}			% Permet l'inclusion d'images
+\usepackage{subcaption}
+\usepackage{floatrow}
+\usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{pgfplots}
+	\usepgfplotslibrary{groupplots}
+\usepackage{tikz}
+	\usetikzlibrary{backgrounds,automata}
+	\pgfplotsset{width=7cm,compat=1.3}
+	\tikzset{every picture/.style={execute at begin picture={
+   		\shorthandoff{:;!?};}
+	}}
+	\pgfplotsset{every linear axis/.append style={
+		/pgf/number format/.cd,
+		use comma,
+		1000 sep={\,},
+	}}
+\usepackage{eso-pic}
+\usepackage{import}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+\usepackage[normalem]{ulem}
+
+%%%% Navigation dans le document %%%%%%%%%%%      
+\usepackage[pdftex,pdfborder={0 0 0},
+			colorlinks=true,
+			linkcolor=blue,
+			citecolor=black,
+			pagebackref=true,
+			]{hyperref}	% Cr��ra automatiquement les liens internes au PDF
+
+% \Autoref is for the beginning of the sentence
+\let\orgautoref\autoref
+\providecommand{\Autoref}{%
+\def\figureautorefname{Figure}%
+\def\tableautorefname{Tableau}%
+\def\subfigureautorefname{Figure}%
+\orgautoref}
+% \autoref is used inside the sentence to produce Fig., and Eq. for figures, subfigures, and equations
+\renewcommand{\autoref}{%
+\def\figureautorefname{Fig.}%
+\def\tableautorefname{Tableau}%
+\def\subfigureautorefname{Fig.}%
+\orgautoref}
+
+\usepackage{nameref}
+
+\newcommand{\fullref}[1]{\autoref{#1}. \nameref{#1}}
+
+\usepackage{tocloft}
+\newlength{\mylen}
+\renewcommand*\cftfigpresnum{Figure~}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
+
+\renewcommand*\cfttabpresnum{Tableau~}
+\settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+
+%% PACKAGES CHARGES EN DERNIER  %%%%%%%%%%%      
+	             
+\usepackage[top=2.5cm, bottom=2cm, left=2.5cm, right=2.5cm,
+			headheight=15pt]{geometry}
+
+\usepackage{fancyhdr}			% Ent�te et pieds de page (apr�s geometry)
+	\pagestyle{fancy}		% Indique que le style de la page sera justement fancy
+	\lfoot[\thepage]{} 		% gauche du pied de page
+	\cfoot{} 			% milieu du pied de page
+	\rfoot[]{\thepage} 		% droite du pied de page
+	\fancyhead[RO, LE] {}	
+	
+\usepackage[acronym, nonumberlist, nomain, nogroupskip,nopostdot]{glossaries}
+\usepackage{glossary-mcols}
+\renewcommand{\glossarypreamble}{\small}
+\renewcommand{\glsnamefont}[1]{\textnormal{#1}}
+
+	\makeglossaries
+	\loadglsentries{Glossaire}			% Utilisation d'un fichier externe pour la définition des entr�es (Glossaire.tex)		

@@ -1,0 +1,202 @@
+%% Copyright (C) 2017-2021 Emeline Simon
+%%
+%% The current owner of this work is Emeline Simon
+%% <contact at emeline.simon@gmail.com>.
+%%
+%% This is main.tex for my PhD Thesis.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt, twoside, openright]{report}
+\input{packages}
+\input{custom_commands}
+\input{titlepage}
+\input{coverpage}
+
+% Méta-données du PDF
+\hypersetup{
+    pdfauthor={Emeline Simon},
+    pdfsubject={Manuscrit de thèse de doctorat},
+    pdftitle={Liens entre l'origine génotypique de la protéine Core du virus de l'hépatite C et la stéatose hépatique},
+    pdfkeywords={virus de l'hépatite C, origine génotypique, protéine Core, stéatose, gouttelettes lipidiques, clusterisation, fusion}
+}
+
+\begin{document}
+	\pagenumbering{roman}
+	\pagedegarde
+	
+	\cleardoublepage
+		
+	% Avant-propos
+\chapter*{Avant-propos}
+\phantomsection\addcontentsline{toc}{chapter}{Avant-propos}
+\section*{Préface}
+
+\noindent
+Le manuscrit et le projet de la thèse de doctorat ont été réalisés par Emeline Simon sous la direction du Dr. Annette Martin.\\ \\
+\noindent
+Ce projet de thèse a été financé pour trois ans suite à l’attribution d’une bourse nominative du concours de l’école doctorale BioSorbonne Paris Cité (ED 562). Une quatrième année a été financée par l’obtention d’une allocation de recherche par l'ANRS Maladies Infectieuses Émergentes. \\ \ \\
+\textbf{Institut Pasteur, Département de Virologie} \\
+Groupe Interactions Hepacivirus/Hôte (HEPA) \\
+Unité de Génétique Moléculaire des virus à ARN (GMVR) \\ 
+25 rue du Docteur Roux, Bâtiment Borrel, 75724 PARIS CEDEX 15  \\
+Chef de groupe : Dr. Annette Martin \\
+Directrice de l’unité : Pr. Sylvie van der Werf \\ \\
+\textbf{Université de Paris}  \\
+45 rue des Saints-Pères, 75298 PARIS CEDEX 06  \\
+Directrice de l’université : Pr. Christine Clerici  \\  \\
+\textbf{École Doctorale BioSorbonne Paris Cité - ED 562}   \\ 
+35 rue Hélène Brion, 75205 PARIS CEDEX 13  \\
+Directrice de l’école doctorale : Pr. Caroline Le Van Kim \\
+Co-directrice de l’école doctorale : Dr. Chantal Desdouets \\
+Gestionnaire : Joanna Levy \\ \\
+\textbf{ANRS - Maladies Infectieuses Émergentes}   \\
+101 rue de Tolbiac, 75205 PARIS CEDEX 13  \\
+Directeur de l’agence : Pr. Yazdan Yazdanpanah \\
+Responsable du département scientifique : Dr. Cécile Peltekian
+
+	\cleardoublepage
+\section*{Remerciements}
+
+\noindent
+Je tiens tout d’abord à adresser mes plus grands remerciements au \textbf{Dr. Annette Martin} pour m’avoir encadrée pendant ces 4 années de thèse. Merci pour la confiance et l’indépendance que tu m’as accordée tout au long du projet, pour tes nombreux conseils avisés et toutes ces discussions dont je suis sortie enrichie tant sur le plan scientifique que sur le plan humain, pour tes encouragements face aux résultats négatifs et à ma frustration et pour avoir toujours été une oreille disponible, critique et solidaire. Merci pour toutes les fois où tu as su te rendre disponible lors de mes besoins. Merci de m’avoir formée avec tant de patience et de pédagogie, de m’avoir fait grandir et de m’avoir fait découvrir le magnifique métier de chercheur avec tant de dévouement. Je suis ravie d’avoir partagé cette aventure de la thèse dans ton équipe qui restera à jamais dans ma mémoire. \\ \\
+\noindent
+Je remercie le \textbf{Pr. Sylvie van der Werf}, directrice de l’unité de Génétique Moléculaire des virus à ARN à l’Institut Pasteur, pour son soutien et pour m’avoir accueillie dans son unité durant ces travaux de thèse. \\ \\
+\noindent
+Je tiens particulièrement à exprimer ma gratitude aux \textbf{Drs. Mirjam Zeisel} et \textbf{Joachim Lupberger} pour avoir accepté volontiers d’évaluer mon travail de thèse et pour leurs suggestions qui ont contribué à améliorer ce manuscrit. Je remercie tout autant le \textbf{Dr. Yves Rouillé} et le \textbf{Pr. Pierre-Emmanuel Ceccaldi} pour leur disponibilité et pour avoir gentiment consenti à faire partie de mon jury de thèse. \\ \\
+\noindent
+Tous mes remerciements à nos collaborateurs, en particulier au \textbf{Pr. Philippe Roingeard} pour sa bienveillance, sa disponibilité, ses nombreux conseils et pour avoir partagé de bon cœur son expérience en microscopie électronique au cours de ces quatres années. Merci au \textbf{Dr. Claire Gondeau} pour sa contribution dans les premières étapes du projet, pour avoir fourni et caractérisé les souches cliniques et pour avoir pris en main les expériences préliminaires sur les cultures primaires d'hépatocytes. \\ \\
+\noindent
+I would like to sincerely thank \textbf{Dr. Dmitry Ershov} for agreeing to participate in this work, which was originally intended to be a short-term collaboration. He turned out to be an outstanding collaborator whom I warmly thank for his kindness, for the interest he naturally and quickly showed for the project, for his availability during the long brain storming sessions and for the rigorous work he provided which allowed me to obtain such advanced results. \\ \\
+\clearpage
+\noindent
+Je tiens également à remercier les équipes des \textbf{Drs. Laleh Majlessi} et \textbf{Nicolas Escriou} pour m’avoir permis de participer à cette belle aventure sur les projets vaccinaux du SARS-CoV-2 menés à l’Institut Pasteur. Un grand merci tout particulier à Nicolas pour s’être fréquemment rendu disponible et pour ses nombreux conseils lors des répétitions de mes présentations orales. \\ \\
+\noindent
+Je tiens à remercier le \textbf{Dr. Matthieu Fritz}, ancien doctorant au sein de l'équipe HEPA, pour m'avoir encadrée dès mon arrivée en Master et et pour le savoir technique et théorique qu'il m'a prodiguée jusqu’à son départ. \\ \\
+\noindent
+I am also grateful to \textbf{Dr. Stephanie Aicher}, former doctoral student in the HEPA team, who initiated the basis of the work I have pursued during this project and for providing valuable viral tools. \\ \\
+\noindent
+Je tiens à remercier chaleureusement \textbf{Brigitte Blumen} et \textbf{Damien Batalie}, techniciens au sein de l’équipe HEPA, pour leur soutien et leur contribution considérable à ce projet sur le plan technique. Merci à toi, Brigitte, pour ton aide précieuse sur la biologie moléculaire, pour toutes les constructions et les mutants que tu as rigoureusement préparés. Merci à toi, Damien, pour m’avoir aidée à préparer tous ces stocks viraux et pour avoir finalisé de nombreuses expériences. Je vous souhaite à tous les deux une très bonne continuation dans l’équipe et plein de bonnes choses tant sur le plan professionnel que personnel. Merci à \textbf{Houda Tabbal}, post-doctorante au sein de l'équipe HEPA, pour avoir pris le temps d'écouter et de me conseiller sur les répétitions de mes présentations orales. \\ \\
+\noindent
+A big thank to \textbf{Angeliki-Anna Beka}, for having participated in my project during her Erasmus internship, for her friendship, for her enthusiasm and for her constant encouragements. I hope I was a good tutor even though I was much less present in the last year. I wish you a wonderful thesis, which, I have no doubt, will be full of beautiful discoveries ! \\ \\
+\noindent
+Un grand merci à \textbf{Martine Vandaele}, \textbf{Edmond Bellance}, \textbf{Jennifer Chevalier} et \textbf{Mohamed Hicaine} pour leur aide au quotidien dans l’organisation et la préparation du matériel du laboratoire et pour leur travail dans « l’ombre » essentiel au succès des projets de recherche. \\ \\
+\noindent
+Merci à \textbf{François Pénin}, anciennement responsable d'entité à l’Institut de Biologie et Chimie des Protéines à Lyon, pour avoir gentiment partagé son expertise et ses prédictions structurales sur les protéines mutantes. \\ \\
+\clearpage
+\noindent
+I would particularly like to express my respect and gratitude to \textbf{Dr. Eva Herker}, group leader in the University of Marburg, for the interest she showed in my modest work, for her availability and for her scientific advices which helped me to progress in this project. I am deeply sorry that the COVID crisis has impacted our project plans, I would have loved to discover your laboratory and carry out this collaborative work with your team. \\ \\
+\noindent
+Je souhaite remercier \textbf{Julien Fernandes}, \textbf{Lesly Raulin} et \textbf{Jean Yves Tinevez}, ingénieurs de recherche aux plateformes de Bioimagerie Photonique et d’Analyse d’Images de l’Institut Pasteur, pour m'avoir formée et conseillée sur l'utilisation du microscope confocal et des logiciels d'imagerie. \\ \\
+\noindent
+Je tiens également à remercier les membres de la plateforme Biomics de l’Institut Pasteur et plus particulièrement \textbf{Thomas Cokelaer}, \textbf{Juliana Pipoli Da Fonseca}, \textbf{Rachel Legendre}, \textbf{Saliha Azebi} et \textbf{Marc Monot} pour l’obtention et l’analyse des résultats du crible transcriptomique. \\ \\
+\noindent
+Je remercie également \textbf{Hugo Varet} et \textbf{Elise Jacquemet}, ingénieurs de recherche aux plateformes de Métabolomique et de Bioinformatique et Biostatistique de l'Institut Pasteur, pour leur contribution très significative à ce projet (\textit{p-value} < 0.0001) et pour avoir réalisé la majeure partie des analyses statistiques de mes résultats. \\ \\
+\noindent
+Je remercie les \textbf{Drs. Takaji Wakita}, \textbf{Charles Rice}, \textbf{Ralf Bartenschlager}, \textbf{John McLauchlan}, \textbf{Agata Budkowska}, \textbf{Athanasios Kakkanas} et \textbf{Penelope Mavromara} pour le don de matériels biologiques. \\ \\
+\noindent
+Merci aux \textbf{Drs. Serge Gangloff} et \textbf{Valérie Choumet} pour avoir gentiment accepté de participer à mon comité de suivi de thèse et pour le temps qu’ils ont bien voulu accorder à l’évaluation annuelle de mes travaux. \\ \\
+\noindent
+Je tiens à remercier \textbf{Elise Caliot}, conseillère carrière au sein de la MAASC, pour m’avoir encouragée et soutenue tout au long de la thèse et pour m’avoir donné de nombreux conseils et contacts afin de préparer ma future carrière. Je m’excuse d’avoir négligé cet aspect important de la vie professionnelle par manque de temps sur la dernière année, mais je vous promets de me concentrer à nouveau très bientôt sur mon avenir. \\ \\
+\noindent
+Un grand merci à \textbf{Coraline Méheux} pour son aide précieuse dans l’organisation de la soutenance de thèse. \\ \\
+\clearpage
+\noindent
+Je tiens à témoigner toute ma reconnaissance aux personnes suivantes, pour l’expérience inoubliable qu’elles m’ont fait vivre durant ces quatres années au sein de l’Institut Pasteur : \\ \\
+\noindent
+Au nouveau \textbf{Dr. Mathieu de Jode}, sans conteste un des meilleurs amis que je me suis faite à Paris, pour son soutien, pour avoir toujours cru en mes capacités (pourtant, c’est un vrai génie par rapport à moi :D), les longues discussions pendant les pauses café, nos anniversaires en commun et tous les moments géniaux que nous avons passé ensemble. J’espère de tout mon cœur que ton nouveau poste à Bruxelles sera enrichissant mais ne nous éloignera pas trop et je te souhaite de réussir dans ta carrière et dans la vie. \\ \\
+\noindent
+À tous les futurs docteurs de la même promotion avec qui j'ai partagé ce chemin, en particulier \textbf{Nicolas Minier} pour son amitié, sa gentillesse et cette campagne géniale de D\&D qui m’a permis de souffler tout au long de la thèse et \textbf{Marta Mastrogiovanni} pour son grand cœur, sa positivité, son humour et pour avoir partagé avec moi des séances de microscopie de dernière minute ;). Je suis très heureuse d'avoir partagé cette grande aventure qu’est la thèse, y compris toutes ses difficultés, à vos côtés. Je vous souhaite à tous beaucoup de bonheur pour l'avenir, tant sur le plan professionnel que personnel.  \\ \\
+\noindent
+À tous mes autres compagnons et ex-compagnons pasteuriens, en particulier \textbf{Sumit Kumar}, \textbf{Ségolène Gracias}, \textbf{Yves-Joël Diegues}, \textbf{Thibault Snollaerts}, \textbf{Florian Bakoa}, \textbf{Rémi Denise}, \textbf{Warren Bakkay} et \textbf{Giulia Gallo} pour leur énorme soutien, pour avoir fait naître cette belle amitié et pour tous les moments géniaux passés ensemble, que ce soit à l’intérieur ou à l’extérieur du campus. \\ \\
+\noindent
+To all the former and current members of \textbf{StaPa} with whom I shared this sometimes difficult but rewarding task of making this association growth, which is so dear to my heart and has allowed me to meet incredible people and most of my friends here on the campus. \\ \\
+\noindent
+Tous mes remerciements à mes anciens camarades du Master 2 de Virologie, en particulier \textbf{Manon Lemasson}, \textbf{Alexandre Nicolas}, \textbf{Sarah Lesage}, \textbf{Salomé Bourgeau} et \textbf{Kevin Villette} qui ont fortement animé ma vie d’étudiante parisienne, pour toutes ces bonnes soirées passées ensemble et pour avoir partagé un bout de chemin avec moi avant et pendant le doctorat. Sans vous, l’année du Master aurait été bien plus fade ;) \\ \\
+\noindent
+J’adresse également des énormes remerciements à mes amis de la licence de Biologie à Rennes, \textbf{Maëla Semery}, \textbf{Laëtitia Hervot}, \textbf{Aëla Vancassel}, \textbf{Laure Olivier}, \textbf{Maxence Lejars} et \textbf{Maxime Royez} avec qui j’ai découvert un amour commun pour la science. Merci pour tous ces souvenirs et soirées mémorables passées ensemble et pour avoir tant fait grandir la petite « Emy » en jeune adulte avec votre générosité, votre maturité, votre ouverture et bien sûr, votre longue amitié. \\ \\
+\noindent
+Je tiens à remercier chaleureusement mes amis d’enfance \textbf{Mossa Diallo}, \textbf{Liza Robert}, \textbf{Donia Benhlal} et \textbf{Youen Chapron} pour avoir été pendant si longtemps le cœur de ma vie bretonne, pour cette longue et durable amitié et pour avoir été un véritable soutien malgré la distance. Merci de m'avoir toujours accueillie avec enthousiasme et d'avoir souvent soulagé ma stressante vie parisienne avec votre fraîcheur et votre naturel. \\ \\
+\noindent
+J’adresse mes plus chaleureuses pensées et ma plus grande gratitude à ma famille, en particulier à mes parents \textbf{Didier} et \textbf{Anne} et à mon frère \textbf{Nicolas} qui ont toujours cru en moi, m’ont soutenu jusqu’au bout et m’ont donné l’énergie et les ressources pour réussir. Merci pour votre immense soutien émotionnel, pour votre confiance et pour m’avoir acceptée telle que je suis, je me sens vraiment chanceuse de vous avoir. Grâce à vous, je crois que j’ai enfin « passé mon bac ». Merci à ma grand-mère \textbf{Marie}, pour son incroyable tendresse, pour avoir pris soin de moi pendant des années étant enfant (et même adulte), pour sa patience et sa compréhension malgré la distance et pour ses délicieuses galettes le vendredi, sans conteste les meilleures qui existent en Bretagne. Merci à mon oncle \textbf{Daniel}, ma tante \textbf{Christiane} et mes cousins \textbf{François} et \textbf{Laura} pour leur soutien, leur présence et pour cette superbe atmosphère qui règne dans la famille. Pour finir, j’adresse une pensée affectueuse à mon grand-père \textbf{Joseph}, un homme tendre et admirable décédé au cours de l’année, avec qui je regrette énormément de ne pas pouvoir partager cette importante étape de ma vie. \\ \\
+\noindent
+Un grande ringraziamento alla famiglia \textbf{Pinto}, in particolare a \textbf{Erika} per la sua gentilezza e il suo amore per i francesi :p, ad \textbf{Antonio} per la sua calda accoglienza e per avermi fatto sentire a mio agio fin dal primo minuto e a \textbf{Fabia} per la sua generosità, la sua tenerezza e per questa meravigliosa zuppa di verdure. \\ \\
+\noindent
+I would like to express my heartfelt thanks to \textbf{Giulia Pinto}, my most beautiful discovery of the last two years. Thank you for bringing so much happiness into my life and for transforming my daily routine. Thank you for being my main ally and true cheerleader, for having supported and relieved my doubts, my angers, my fears and my little too tenacious imposter syndrome, for believing in me so much and for pushing me until the day I finally wrote these lines. I am proud to have made you proud and I have no doubt that you will soon find the keys that will lead you to a wonderful future. \\ \\
+\noindent
+Enfin, ce travail n’aurait pas été possible sans le soutien de l'\textbf{Université de Paris}, de la commission de l'\textbf{ANRS} et du \textbf{Département de Virologie} de l’Institut Pasteur, qui m’ont permis, grâce à une bourse doctorale, une allocation de recherche et diverses aides financières de réaliser et de terminer cette thèse avec sérénité.
+
+	\cleardoublepage
+
+\chapter*{Résumé}
+\phantomsection\addcontentsline{toc}{chapter}{Résumé}
+\begin{singlespace}
+L'infection chronique par le virus de l'hépatite C (VHC) est une maladie du foie progressive qui peut mener à une stéatose, une accumulation anormale de gouttelettes lipidiques (GL) dans les hépatocytes. Des études cliniques ont mis en évidence une corrélation entre l'infection chronique par les VHC de génotype 3 et une prévalence élevée de stéatose, ainsi qu'un taux de progression accru vers la cirrhose et le carcinome hépatocellulaire. Parmi les facteurs viraux, la protéine de capside (Core) présente une association singulière et critique à la surface des GL et joue un rôle clé dans la dérégulation des voies de signalisation hépatiques, représentant des facteurs de risque potentiels pour la stéatose. Dans ce contexte, les objectifs de mon projet de thèse étaient (i) d'évaluer l'impact de l'infection par le VHC sur la biogénèse et la dynamique des GL, et (ii) d'identifier si les génotypes ou les polymorphismes de Core sont impliqués dans la dérégulation de l'homéostasie des GL et des voies métaboliques hépatocytaires clés qui pourraient sous-tendre les aggravations cliniques. \\ \\
+\indent
+En lien avec le premier objectif, des analyses cinétiques par imagerie quantitative d'hépatocytes infectés par une souche prototypique du VHC ont révélé que le contenu global des GL est inchangé, ce qui suggère que l'infection n'a pas d'impact sur la biogenèse globale des GL. Cependant, au fur et à mesure que l’infection progresse, les GL montrent un élargissement et une redistribution marquée sous la forme d’agrégats compacts, portant Core à leurs sites de contact et à leur surface. En utilisant des ARN du VHC codant une protéine Core mutée incapable de s'associer aux GL, aucun élargissement ou regroupement de GL n'a été observé. Ces résultats indiquent que Core est le principal moteur de l'agrégation des GL, potentiellement en reliant physiquement les GL limitrophes, en déstabilisant leur tension de surface et en favorisant leur fusion. Le rôle fonctionnel de l'agrégation et de la redistribution des GL pourrait être de délivrer la protéine de capside aux sites d'assemblage du VHC. \\ \\
+\indent
+En lien avec le second objectif, de nouveaux virus intergénotypiques ont été produits, exprimant des protéines Core hétérologues dérivées d'isolats cliniques de sous-types 1a, 2a, 3a, 4a et 4f et associés à divers degrés de stéatose. L'ampleur de l'élargissement des GL dans les cellules infectées par ces différents virus varie selon les séquences de Core, mais indépendamment des génotypes ou des degrés de stéatose. En parallèle, des analyses transcriptomiques comparatives à haut débit d'hépatocytes infectés par les virus intergénotypiques ont mis en évidence des dérégulations hépatiques différentielles marquées. En outre, plusieurs facteurs prédictifs de la stéatose se sont avérés spécifiquement modulés par les protéines Core de génotype 1a, 3a ou 4. Ces résultats révèlent une modulation différentielle de facteurs pro-stéatogènes clés en lien avec l'origine génotypique de la protéine Core du VHC, ce qui pourrait \textit{in fine} fournir des marqueurs de progression de cette pathologie hépatique. \\ \\
+Mots clés : virus de l'hépatite C - origine génotypique - protéine Core - stéatose - \\ gouttelettes lipidiques - clusterisation - fusion
+\end{singlespace}
+
+	\cleardoublepage
+	
+\chapter*{Summary}
+\begin{singlespace}
+Chronic hepatitis C virus (HCV) infection is a slow, progressive liver disease leading to steatosis, an abnormal accumulation of lipid droplets (LDs) in hepatocytes. Clinical studies have reported a correlation between HCV genotype 3 chronic infection and a higher prevalence of steatosis, as well as increased progression rate toward cirrhosis and hepatocellular carcinoma. Among viral factors, the capsid (Core) protein displays a peculiar and critical association at the surface of cytosolic LDs and has a key role in the dysregulation of hepatocyte signaling and metabolic pathways, representing potentially important risk factors for steatosis.  In this context, the aims of my PhD project were to (i) assess how HCV infection impacts LD biogenesis and dynamics, and (ii) identify whether genotype-specific Core polymorphisms are involved in the dysregulation of hepatocyte LD homeostasis and key metabolic pathways that may account for clinical manifestations. \\ \\
+\indent
+In addressing the first aim, quantitative imaging time-course analyses of hepatocytes infected with an HCV prototypic strain revealed that global LD content remained unaltered, suggesting that infection did not impact the overall LD biogenesis. However, as infection progressed, LDs displayed a marked redistribution in large and compact clusters, bearing Core at their contact sites and surface. Using HCV RNAs encoding mutated Core unable to associate to LDs, no LD enlargement or clustering was observed. These results indicate that Core is the main driver of LD clustering, possibly by physically bridging neighboring LDs, destabilizing their surface tension and favoring their fusion. The functional role of LD aggregation and redistribution may be the delivery of capsid protein at the HCV assembly sites.\\ \\
+\indent
+To address the second aim, a set of novel intergenotypic viruses was produced that expressed heterologous Core proteins derived from clinical isolates of subtypes 1a, 2a, 3a, 4a and 4f and associated with various steatosis grades. The extent of LD local enlargement in cells infected with these intergenotypic viruses was found to vary according to Core sequences, yet apparently irrespective of HCV genotypes or steatosis grades. In parallel, comparative high-throughput transcriptomic analyses of hepatocytes infected with the recombinant viruses showed marked differential impact in hepatic gene dysregulations. In addition, several steatosis-predictive factors were found to be specifically modulated by genotype 1a, 3a or 4 Core. These findings reveal a differential modulation of key pro-steatogenic factors in link with the genotypic origin of HCV Core that may ultimately provide markers of liver disease progression. \\ \\
+Key words : hepatitis C virus - genotypic origin - core protein - steatosis - lipid droplets - clustering - fusion
+\end{singlespace}
+\cleardoublepage
+	
+
+	% Table des matières
+\setcounter{tocdepth}{1}
+\dominitoc
+\tableofcontents
+						
+	% Liste des acronymes
+			\printglossary[type=\acronymtype, style=indexgroup, title={Liste des acronymes}, toctitle={Liste des acronymes}]
+			\glsaddall
+			
+\cleardoublepage
+
+	% Liste des figures
+			\renewcommand*\listfigurename{Liste des figures}
+
+\listoffigures%
+
+			\captionsetup[figure]{labelfont={bf}}
+
+\cleardoublepage
+
+	% Liste des tableaux
+\listoftables%
+
+			\captionsetup[table]{labelfont={bf}}
+			
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+%        Contenu du document        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\setcounter{mtc}{5}	% "Corrige" les minitocs décalés cause des chapitres *
+	\pagenumbering{arabic}
+	\input{chapter-01_introduction}
+	\input{chapter-02_project}
+	\input{chapter-03_discussion}
+	\input{chapter-04_material}
+	\input{chapter-05_methods}
+	\input{ressources}
+
+			\newpage
+			\phantomsection\addcontentsline{toc}{chapter}{Références}
+			\markboth{}{}
+		\bibliographystyle{apalike}
+		\bibliography{bibliography}
+	\cleardoublepage
+	
+	\coverpage
+\end{document}

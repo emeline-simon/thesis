@@ -1,0 +1,55 @@
+%% Copyright (C) 2017-2021 Emeline Simon
+%%
+%% The current owner of this work is Emeline Simon
+%% <contact at emeline.simon@gmail.com>.
+%%
+%% This is titlepage.tex for my PhD Thesis.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+\newcommand{\titlepage}{
+\newgeometry{top=2.5cm, bottom=2cm, left=2cm, right=1cm}
+  \begin{titlepage}
+\begin{picture}(0,0)
+\put(170,20){\makebox(0,0)[rt]{\includegraphics[width=6.5cm]{logos/logo-ip.png}}}
+\put(465,15){\makebox(0,0)[rt]{\includegraphics[width=7.5cm]{logos/logo-virip.png}}}
+\end{picture}
+      \vspace{3.5cm}
+      
+\centering
+      {\huge Université de Paris}\\
+    \vspace{1cm}
+      	{\Large École doctorale Bio Sorbonne Paris Cité - ED 562}\\
+    \vspace{0.5cm}
+   		{\large Institut Pasteur, Université de Paris, CNRS, UMR 3569}\\
+   	    {\large Génétique Moléculaire des virus à ARN}\\
+    \vspace{1.5cm}
+    	{\LARGE \textbf{Liens entre l'origine génotypique de la protéine Core}}\\
+    	{\LARGE \textbf{du virus de l'hépatite C et la stéatose hépatique}}\\
+    \vspace{1.5cm}
+     {\Large Par Emeline Simon}\\
+    \vspace{1cm}
+    	{\Large Thèse de doctorat d'Infectiologie}\\
+    \vspace{1cm}
+    	{\large Dirigée par le Dr. Annette Martin}\\
+    \vspace{1cm}
+    	{\large Présentée et soutenue publiquement le 7 décembre 2021}\\
+      \vspace{1cm}
+	\hspace{-6cm}
+	{Devant un jury composé de :}\\
+    \vfill
+    \begin{tabbing}
+	Mirjam Zeisel \hspace{9em} \= Université de Lyon \hspace{5em} \= CR-HDR \hspace{2em} \= Rapportrice \\
+	Joachim Lupberger \> Université de Strasbourg \> CR-HDR \> Rapporteur \\
+	 Yves Rouillé \> Université de Lille \> DR-HDR \> Examinateur \\
+	Pierre-Emmanuel Ceccaldi \> Université de Paris \> PU-HDR \> Président du jury \\
+	Annette Martin \> Université de Paris \> DR-HDR \> Directrice de thèse
+	\end{tabbing}
+	\vfill
+  \end{titlepage}
+
+\restoregeometry
+}
+\makeatother
