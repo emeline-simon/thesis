@@ -37,6 +37,7 @@ manuscript/
 └── titlepage.tex           # Title page layout (Tex code)
 └── custom_commands.tex     # Custom LaTeX commands
 └── packages.tex            # Required packages
+└── glossary.tex            # List of acronyms
 └── main.tex                # Main compilation file
 ```
 
