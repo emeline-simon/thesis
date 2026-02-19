@@ -15,16 +15,22 @@ This repository is organized in modular chapters with `main.tex` compiling every
 ```
 manuscript/
 ├── chapter-01_introduction/
+│   ├── figs/
 │   ├── 01_introduction.tex
 ├── chapter-02_project/
+│   ├── figs/
 │   ├── 02_objectives.tex
 │   ├── 02_project.tex
 ├── chapter-03_discussion/
+│   ├── figs/
 │   ├── 03_discussion.tex
 ├── chapter-04_material/
+│   ├── figs/
 │   ├── 04_material.tex
 ├── chapter-05_methods/
+│   ├── figs/
 │   ├── 05_methods.tex
+├── ressources/
 ├── bibliography.bib        # Contains all my sources and scientific references (Zotero-generated BibTeX).
 └── contributions.tex       # List of the precious contributors of my PhD work (Tex code)
 └── coverpage.tex           # Cover page layout (Tex code)
