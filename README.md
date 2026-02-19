@@ -35,9 +35,9 @@ manuscript/
 └── contributions.tex       # List of the precious contributors of my PhD work (Tex code)
 └── coverpage.tex           # Cover page layout (Tex code)
 └── titlepage.tex           # Title page layout (Tex code)
-└── custom_commands.tex     # Custom LaTeX commands
-└── packages.tex            # Required packages
-└── glossary.tex            # List of acronyms
+└── custom_commands.tex     # Custom LaTeX commands (Tex code)
+└── packages.tex            # Required packages (Tex code)
+└── glossary.tex            # List of acronyms (Tex code)
 └── main.tex                # Main compilation file
 ```
 
